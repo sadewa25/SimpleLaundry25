@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.codedirect.laundry.ui.home.HomeVM" />
+
+        <variable
+            name="data"
+            type="com.codedirect.laundry.data.source.remote.response.TransactionsItems" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:elevation="@dimen/margin_small"
+        android:onClick="@{() -> model.onItemClick(data)}">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_small">
+
+            <TextView
+                android:id="@+id/item_tv_name_transaction"
+                style="@style/TextViewGeneral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_tv_name_transaction_content"
+                style="@style/TextViewGeneral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.nameUsersTransaksi}"
+                android:textColor="@color/main_blue_color"
+                android:textSize="@dimen/text_default_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_tv_weight_transaction"
+                style="@style/TextViewGeneral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/weight"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_tv_weight_transaction_content"
+                style="@style/TextViewGeneral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.weightTransaksi}"
+                android:textColor="@color/main_blue_color"
+                android:textSize="@dimen/text_default_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_tv_desc_transaction"
+                style="@style/TextViewGeneral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/desc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_tv_desc_transaction_content"
+                style="@style/TextViewGeneral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.descTransaksi}"
+                android:textColor="@color/main_blue_color"
+                android:textSize="@dimen/text_default_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/item_tv_status_transaction"
+                style="@style/TextViewGeneral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{data.idApproval.equals(`1`) ? @string/unfinished : @string/finished}"
+                android:textColor="@{data.idApproval.equals(`1`) ? @color/redColor : @color/greenColor}"
+                android:textSize="@dimen/text_default_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:onClick="@{() -> model.onItemDelete(data)}"
+                android:src="@drawable/ic_baseline_delete_24" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.cardview.widget.CardView>
+</layout>

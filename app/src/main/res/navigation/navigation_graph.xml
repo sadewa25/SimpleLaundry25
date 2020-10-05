@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/splashScreenFragment">
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.codedirect.laundry.ui.splashscreen.SplashScreenFrag"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/frag_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFrag"
+            app:destination="@id/homeFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.codedirect.laundry.ui.login.LoginFrag"
+        android:label="fragment_login"
+        tools:layout="@layout/frag_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFrag"
+            app:destination="@id/registerFrag" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFrag"
+            app:destination="@id/homeFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFrag"
+        android:name="com.codedirect.laundry.ui.register.RegisterFrag"
+        android:label="RegisterFrag" />
+    <fragment
+        android:id="@+id/homeFrag"
+        android:name="com.codedirect.laundry.ui.home.HomeFrag"
+        android:label="HomeFrag" >
+        <action
+            android:id="@+id/action_homeFrag_to_addingDataFrag"
+            app:destination="@id/addingDataFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/addingDataFrag"
+        android:name="com.codedirect.laundry.ui.adding_data.AddingDataFrag"
+        android:label="AddingDataFrag" />
+</navigation>
